@@ -1,9 +1,15 @@
-import { Hono } from 'hono'
+import { Hono } from 'hono';
+import { logger } from 'hono/logger';
+import { nyaaRouter } from './routes';
 
-const app = new Hono()
+const app = new Hono().basePath('/api');
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+app.use('*', logger());
 
-export default app
+app.get('/', async c => {
+    return c.text('Hello World!');
+});
+
+app.route('/search/nyaa', nyaaRouter);
+
+export default app;

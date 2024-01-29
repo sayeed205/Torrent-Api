@@ -32,25 +32,7 @@ COPY --from=install /temp/prod/node_modules node_modules
 COPY --from=prerelease /usr/apps/torrent-api/src src
 COPY --from=prerelease /usr/apps/torrent-api/package.json .
 
-
 # run the app
 USER bun
 EXPOSE 3000/tcp
-ENTRYPOINT [ "bun", "run", "src/index.ts" ]
-
-
-
-# FROM oven/bun:1 as base
-# WORKDIR /usr/apps/torrent-api
-
-# # install dependencies
-# COPY package.json bun.lockb ./
-# RUN bun install --frozen-lockfile
-
-# # copy source code
-# COPY . .
-
-# # run the app
-# USER bun
-# EXPOSE 3000/tcp
-# ENTRYPOINT [ "bun", "run", "src/index.ts" ]
+ENTRYPOINT [ "bun", "start" ]

@@ -1,8 +1,25 @@
 {
-  "compilerOptions": {
-    "esModuleInterop": true,
-    "strict": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx"
-  }
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "alwaysStrict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"],
+            "@test/*": ["test/*"],
+            "tslib": ["node_modules/tslib/tslib.d.ts"]
+        },
+        "strict": true,
+        "jsx": "react-jsx",
+        "jsxImportSource": "hono/jsx"
+    },
+    "include": ["src/**/*", "test/**/*"],
+    "exclude": ["node_modules"]
 }
